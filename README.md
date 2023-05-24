@@ -1,2 +1,25 @@
-# CSC-648-Full-Web-App
-Full semester project of a working web application
+# csc648 Repository
+
+## Please when ready add your teams application URL or IP to the repository description. This will help with grading. Teams are expected to keep this value up to date.
+
+## Please do the following steps before completing Milestone 0.
+1. Change the name of the repository. All that needs to change is the NN to your respective team number. Team numbers whose value is less than 10, please pad with a 0. Ex team 1 is Team01 team 11 is Team11. Please make sure to also remove the username from the repository as well. Teams with incorrectly name repository will have points deducted from their milestone 0 grades.
+      - Please follow the naming convention assigned by your instructor.
+
+1. PLEASE REMOVE THE USERNAME FROM THE REPOSITORY NAME!!!
+
+2. Add ALL members of your team to this repository. For it to count, they must ACCEPT the invite.
+
+3. Fill out the table below
+
+
+| Student Name | Student Email | GitHub Username |
+|    :---:     |     :---:     |     :---:       |
+| Carmelo DE GUZMAN   | cdeguzman@mail.sfsu.edu     | [carmelodz](https://github.com/carmelodz)                |
+| Isabel FALCON       | falcon@mail.sfsu.edu        | [isabe1l](https://github.com/isabe1l)                |
+| Diego FLORES FLORES | dfloresflores@mail.sfsu.edu | [DiegoF001](https://github.com/DiegoF001)                |
+| Coline SEGURET      | cseguret@sfsu.edu           | [Cleopha](https://github.com/Cleopha)                |
+| Sumith SHRESTHA     | sshrestha12@sfsu.edu        | [SumithStha](https://github.com/SumithStha)                |
+| Adrian VAZQUEZ      | avazquez10@mail.sfsu.edu    | [Radian758](https://github.com/Radian758)                |
+
+## NO code needs to be stored in the root of your repository. You may rename the application folder if you like to your team's application name. But all source code related to your team's application should be stored inside the application folder.

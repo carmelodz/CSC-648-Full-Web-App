@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "${DB_PORT}:3306"
+
+  redis-db:
+    image: bitnami/redis
+    environment:
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+    ports:
+      - "${REDIS_PORT}:6379"
+
+  backend:
+    restart: always
+    image: csc-648/backend
+    build:
+      context: backend
+    environment:
+      - DATABASE_URL=mysql://root:${DB_ROOT_PASSWORD}@db:3306/${DB_NAME}
+      - DB_HOST=db
+      - DB_PORT=${DB_PORT}
+      - REDIS_HOST=redis-db
+      - REDIS_PORT=${REDIS_PORT}
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - SESSION_SECRET=${SESSION_SECRET}
+      - REDIS_URL=redis://:$REDIS_PASSWORD@redis-db:6379
+    depends_on:
+      - redis-db
+      - db
+    ports:
+      - "5000:5000"
+
+  frontend:
+    restart: always
+    image: csc-648/frontend
+    build:
+      context: frontend
+    stdin_open: true
+    ports:
+      - "3000:3000"

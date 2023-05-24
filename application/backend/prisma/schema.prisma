@@ -1,0 +1,119 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String        @id @default(uuid())
+  email          String        @unique
+  password       String
+  role           UserRole      @default(USER)
+  directorStatus RequestStatus?
+  directorAlert  AlertType?
+  countyName     County      @default(Alameda)
+  alerts        Alert[]
+  health_alerts       Boolean  @default(true)
+  fire_alerts        Boolean  @default(true)
+  security_alerts    Boolean  @default(true)
+  weather_alerts     Boolean  @default(true)
+}
+
+model Alert {
+  id           String        @id @default(uuid())
+  lat          Float
+  lng          Float
+  severity     Int
+  type         AlertType
+  title        String
+  description  String
+  zipCode      String?
+  countyName  County
+  users       User[]
+  alertStatus  RequestStatus @default(PENDING)
+  createdAt    DateTime      @default(now()) 
+
+}
+
+enum AlertType {
+  FIRE
+  WEATHER
+  HEALTH
+  SECURITY
+}
+
+enum UserRole {
+  USER
+  DIRECTOR_COUNTY
+  ADMIN
+}
+
+enum RequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum County {
+  Alameda
+  Alpine
+  Amador
+  Butte
+  Calaveras
+  Colusa
+  ContraCosta
+  DelNorte
+  ElDorado
+  Fresno
+  Glenn
+  Humboldt
+  Imperial
+  Inyo
+  Kern
+  Kings
+  Lake
+  Lassen
+  LosAngeles
+  Madera
+  Marin
+  Mariposa
+  Mendocino
+  Merced
+  Modoc
+  Mono
+  Monterey
+  Napa
+  Nevada
+  Orange
+  Placer
+  Plumas
+  Riverside
+  Sacramento
+  SanBenito
+  SanBernardino
+  SanDiego
+  SanFrancisco
+  SanJoaquin
+  SanLuisObispo
+  SanMateo
+  SantaBarbara
+  SantaClara
+  SantaCruz
+  Shasta
+  Sierra
+  Siskiyou
+  Solano
+  Sonoma
+  Stanislaus
+  Sutter
+  Tehama
+  Trinity
+  Tulare
+  Tuolumne
+  Ventura
+  Yolo
+  Yuba
+}

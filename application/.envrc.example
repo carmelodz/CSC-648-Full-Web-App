@@ -1,0 +1,14 @@
+#.envrc
+
+# MYSQL Configuration
+export DB_ROOT_PASSWORD=example
+export DB_NAME=dev_db
+export DB_USER=dev_user
+export DB_PASSWORD=dev_password
+export DB_PORT=3306
+
+
+# Redis Configuration
+export REDIS_PORT=6379
+export REDIS_PASSWORD="redispassword"
+export SESSION_SECRET="okcmaseccret"

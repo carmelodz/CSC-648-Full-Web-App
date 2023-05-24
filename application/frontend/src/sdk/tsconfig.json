@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "ES2019",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "lib": ["ES2019", "DOM", "es2015.promise", "es2015.iterable"],
+        "paths": {
+            "axios": [
+                "./node_modules/axios"
+            ]
+        }
+    }
+}
